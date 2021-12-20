@@ -115,7 +115,7 @@ const Home = () => {
         </Text>
         <Text color={"purple.500"}>
           Cada Toro NFT se genera de forma secuencial basado en tu address,
-          usa el previsualizador para averiguar cuál sería tu Platzi Punk si
+          usa el previsualizador para averiguar cuál sería tu Toro NFT si
           minteas en este momento
         </Text>
         <Stack
