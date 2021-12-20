@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
 import useToroNft from "../../hooks/useToroNft";
 import { useCallback, useEffect, useState } from "react";
+import BgAnimation from "../../components/bg-animation";
 
 const Home = () => {
   const [isMinting, setIsMinting] = useState(false);
@@ -160,10 +161,19 @@ const Home = () => {
       >
         <div
           style={{
-            marginBottom: "20px"
+            marginBottom: "20px",
           }}
-        >{active && <Heading as="h3" fontSize='lg' color={"blue.900"} >Próximo NFT</Heading>}</div>
-        <Image src={active ? imageSrc : "https://avataaars.io/"} />
+        >
+          {active && (
+            <Heading as="h3" fontSize="lg" color={"blue.900"}>
+              Próximo NFT
+            </Heading>
+          )}
+        </div>
+        <Image
+          src={active ? imageSrc : "https://avataaars.io/"}
+          className="next-nft-image-wrapper"
+        />
         {active ? (
           <>
             <Flex mt={2}>
@@ -206,10 +216,14 @@ const Home = () => {
             >
               Actualizar
             </Button>
+            <div className="svg-bg-wrapper">
+          <BgAnimation />
+        </div>
           </>
         ) : (
           <Badge mt={2}>Wallet desconectado</Badge>
         )}
+     
       </Flex>
     </Stack>
   );

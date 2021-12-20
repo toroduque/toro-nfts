@@ -12,3 +12,20 @@ html, body {
     background: rgb(255,143,189);
     background: linear-gradient(90deg, rgba(255,143,189,1) 0%, rgba(94,252,231,1) 100%);
 }
+
+.next-nft-image-wrapper {
+    margin-top: 5px;
+    margin-bottom: 40px;
+    z-index: 2;
+}
+
+.svg-bg-wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 90px;
+}
+
+.svg-bg-wrapper svg {
+    width: 320px;
+    height: 320px;
+}
