@@ -109,14 +109,14 @@ const Home = () => {
           </Text>
         </Heading>
         <Text color={"gray.500"}>
-          Toro NFTs es una colección de Avatares randomizados cuya metadata
-          es almacenada on-chain. Poseen características únicas y sólo hay 10000
-          en existencia.
+          Toro NFTs es una colección de Avatares randomizados cuya metadata es
+          almacenada on-chain. Poseen características únicas y sólo hay 10000 en
+          existencia.
         </Text>
         <Text color={"purple.500"}>
-          Cada Toro NFT se genera de forma secuencial basado en tu address,
-          usa el previsualizador para averiguar cuál sería tu Toro NFT si
-          minteas en este momento
+          Cada Toro NFT se genera de forma secuencial basado en tu address, usa
+          el previsualizador para averiguar cuál sería tu Toro NFT si minteas en
+          este momento
         </Text>
         <Stack
           spacing={{ base: 4, sm: 6 }}
@@ -143,7 +143,7 @@ const Home = () => {
           </Link>
         </Stack>
       </Stack>
- 
+
       <Flex
         flex={1}
         direction="column"
@@ -151,7 +151,18 @@ const Home = () => {
         align={"center"}
         position={"relative"}
         w={"full"}
+        style={{
+          border: "solid 1px #f1f1f1",
+          borderRadius: "8px",
+          boxShadow: "0 12px 24px #f1f1f1",
+          padding: "60px 0",
+        }}
       >
+        <div
+          style={{
+            marginBottom: "20px"
+          }}
+        >{active && <Heading as="h3" fontSize='lg' color={"blue.900"} >Próximo NFT</Heading>}</div>
         <Image src={active ? imageSrc : "https://avataaars.io/"} />
         {active ? (
           <>
@@ -159,7 +170,9 @@ const Home = () => {
               <Badge>
                 Next ID:
                 <Badge ml={1} colorScheme="green">
-                  {totalSupply !== "...loading" ? Number(totalSupply) + 1 : "...loading"}
+                  {totalSupply !== "...loading"
+                    ? Number(totalSupply) + 1
+                    : "...loading"}
                 </Badge>
               </Badge>
               <Badge ml={2}>

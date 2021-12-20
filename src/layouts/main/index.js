@@ -19,7 +19,7 @@ const Links = [
     to: "/",
   },
   {
-    name: "Toros",
+    name: "Galería NFTs",
     to: "/toros",
   },
 ];
