@@ -18,10 +18,11 @@ const ToroCard = ({ image, name, tokenId, ...props }) => {
       p={6}
       maxW={"330px"}
       w={"full"}
-      bg={useColorModeValue("white", "gray.800")}
-      boxShadow={"2xl"}
+      bg={useColorModeValue("white", "gray.600")}
+      boxShadow={"lg"}
       rounded={"lg"}
       pos={"relative"}
+      border={"solid 1px #f2f2f2"}
       zIndex={1}
       {...props}
     >
@@ -38,19 +39,19 @@ const ToroCard = ({ image, name, tokenId, ...props }) => {
           top: 0,
           left: 0,
           backgroundImage: `url(${image})`,
-          filter: "blur(15px)",
+          filter: "blur(20px)",
           zIndex: -1,
         }}
         _groupHover={{
           _after: {
-            filter: "blur(20px)",
+            filter: "blur(18px)",
           },
         }}
       >
         <Image
-          rounded={"lg"}
-          height={230}
-          width={282}
+          rounded={"md"}
+          height={218.5}
+          width={268}
           objectFit={"cover"}
           src={image}
         />
@@ -60,7 +61,7 @@ const ToroCard = ({ image, name, tokenId, ...props }) => {
           {name}
         </Heading>
         {!hasParams && (
-          <Button colorScheme="blue" variant="ghost" spacing={4}>
+          <Button colorScheme="cyan" variant="ghost" spacing={4}>
             <Link to={`/toros/${tokenId}`}>View more</Link>
           </Button>
         )}

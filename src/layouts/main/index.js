@@ -31,10 +31,11 @@ const MainLayout = ({ children }) => {
     <Flex minH="100vh" direction="column">
       <Box
         mx="auto"
-        maxW={"7xl"}
+        maxW={"6xl"}
         width="100%"
         bg={useColorModeValue("white", "gray.800")}
         px={4}
+        marginTop={5}
       >
         <Flex
           bg={useColorModeValue("white", "gray.800")}
@@ -89,7 +90,7 @@ const MainLayout = ({ children }) => {
           </Box>
         ) : null}
       </Box>
-      <Box mx="auto" flex={1} p={4} maxW={"7xl"} width="100%">
+      <Box mx="auto" flex={1} p={4} maxW={"6xl"} width="100%">
         {children}
       </Box>
       <Footer />

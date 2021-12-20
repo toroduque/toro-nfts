@@ -99,7 +99,7 @@ const Toro = () => {
         <Button
          onClick={transfer}
          isLoading={isTransfering}
-         disabled={account !== toro.owner} colorScheme="green">
+         disabled={account !== toro.owner} colorScheme="cyan">
           {account !== toro.owner ? "No eres el dueño" : "Transferir"}
         </Button>
       </Stack>
@@ -108,13 +108,13 @@ const Toro = () => {
         <Text fontSize="xl">{toro.description}</Text>
         <Text fontWeight={600}>
           DNA:
-          <Tag ml={2} colorScheme="green">
+          <Tag ml={2} colorScheme="cyan">
             {toro.dna}
           </Tag>
         </Text>
         <Text fontWeight={600}>
           Owner:
-          <Tag ml={2} colorScheme="green">
+          <Tag ml={2} colorScheme="cyan">
             {toro.owner}
           </Tag>
         </Text>

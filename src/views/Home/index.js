@@ -79,18 +79,19 @@ const Home = () => {
     <Stack
       align={"center"}
       spacing={{ base: 8, md: 10 }}
-      py={{ base: 20, md: 28 }}
+      py={{ base: 20, md: 20 }}
       direction={{ base: "column-reverse", md: "row" }}
     >
       <Stack flex={1} spacing={{ base: 5, md: 10 }}>
         <Heading
           lineHeight={1.1}
-          fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+          fontWeight={800}
+          fontSize={{ base: "6xl", sm: "6xl", lg: "6xl" }}
         >
           <Text
             as={"span"}
             position={"relative"}
+            fontSize="7xl"
             _after={{
               content: "''",
               width: "full",
@@ -98,23 +99,20 @@ const Home = () => {
               position: "absolute",
               bottom: 1,
               left: 0,
-              bg: "blue.500",
+              bg: "linear-gradient(90deg, rgba(255,143,189,1) 0%, rgba(94,252,231,1) 100%)",
               zIndex: -1,
             }}
           >
-            Un Toro NFT
+            Toro NFT
           </Text>
           <br />
-          <Text as={"span"} color={"blue.500"}>
-            nunca para de aprender
-          </Text>
         </Heading>
-        <Text color={"gray.500"}>
+        <Text color={"gray.600"} fontSize="xl">
           Toro NFTs es una colección de Avatares randomizados cuya metadata es
           almacenada on-chain. Poseen características únicas y sólo hay 10000 en
           existencia.
         </Text>
-        <Text color={"purple.500"}>
+        <Text color={"gray.600"} fontSize="xl">
           Cada Toro NFT se genera de forma secuencial basado en tu address, usa
           el previsualizador para averiguar cuál sería tu Toro NFT si minteas en
           este momento
@@ -128,9 +126,9 @@ const Home = () => {
             size={"lg"}
             fontWeight={"normal"}
             px={6}
-            colorScheme={"green"}
-            bg={"blue.500"}
-            _hover={{ bg: "purple.500" }}
+            colorScheme={"turquoise"}
+            bg={"turquoise"}
+            _hover={{ bg: "violet" }}
             disabled={!toroNft}
             onClick={mint}
             isLoading={isMinting}
@@ -138,7 +136,13 @@ const Home = () => {
             Obtén tu NFT
           </Button>
           <Link to="/toros">
-            <Button rounded={"full"} size={"lg"} fontWeight={"normal"} px={6}>
+            <Button
+              rounded={"full"}
+              size={"lg"}
+              fontWeight={"normal"}
+              px={6}
+              _hover={{ bgColor: "PaleTurquoise" }}
+            >
               Galería
             </Button>
           </Link>
@@ -179,7 +183,7 @@ const Home = () => {
             <Flex mt={2}>
               <Badge>
                 Next ID:
-                <Badge ml={1} colorScheme="green">
+                <Badge ml={1} colorScheme="cyan">
                   {totalSupply !== "...loading"
                     ? Number(totalSupply) + 1
                     : "...loading"}
@@ -187,7 +191,7 @@ const Home = () => {
               </Badge>
               <Badge ml={2}>
                 Address:
-                <Badge ml={1} colorScheme="green">
+                <Badge ml={1} colorScheme="cyan">
                   0x0000...0000
                 </Badge>
               </Badge>
@@ -195,13 +199,13 @@ const Home = () => {
             <Flex mt={2}>
               <Badge>
                 Max Supply:
-                <Badge ml={1} colorScheme={"green"}>
+                <Badge ml={1} colorScheme={"cyan"}>
                   {maxSupply ? maxSupply : "...loading"}
                 </Badge>
               </Badge>
               <Badge>
                 Minted:
-                <Badge ml={2} colorScheme={"green"}>
+                <Badge ml={2} colorScheme={"cyan"}>
                   {totalSupply === "...loading" && maxSupply === "...loading"
                     ? "...loading"
                     : `${(totalSupply / maxSupply) * 100}%`}
@@ -212,18 +216,17 @@ const Home = () => {
               onClick={getToroNftData}
               mt={4}
               size="xs"
-              colorScheme="green"
+              colorScheme="cyan"
             >
               Actualizar
             </Button>
             <div className="svg-bg-wrapper">
-          <BgAnimation />
-        </div>
+              <BgAnimation />
+            </div>
           </>
         ) : (
           <Badge mt={2}>Wallet desconectado</Badge>
         )}
-     
       </Flex>
     </Stack>
   );
