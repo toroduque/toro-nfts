@@ -1,4 +1,5 @@
 import anime from "animejs/lib/anime.es.js";
+import { useEffect, useRef } from "react";
 
 const bubblePath1 =
   "M1120.5 492.587C1120.5 784.41 753.411 1106.32 461.343 1106.32C71.7985 1106.32 0.5 665.945 0.5 374.123C0.5 82.3003 272.209 0.0515747 564.277 0.0515747C856.346 0.0515747 1067.14 214.662 1120.5 492.587Z";
@@ -16,6 +17,31 @@ const circlePath =
   "M1120 560C1120 869.279 869.279 1120 560 1120C250.721 1120 0 869.279 0 560C0 250.721 250.721 0 560 0C869.279 0 1120 250.721 1120 560Z";
 
 export default function BgAnimation() {
+  const animationRef = useRef(null);
+
+  useEffect(() => {
+    // Animations!
+    const timeline = anime.timeline({
+      easing: "linear",
+      duration: 15000,
+      loop: true,
+    });
+
+    timeline.add({
+      targets: "#circle",
+      d: [
+        { value: bubblePathSoft },
+        { value: bubblePath1 },
+        { value: bubblePathSoft },
+        { value: bubblePath2 },
+        { value: bubblePathSoft },
+        { value: bubblePath3 },
+        { value: bubblePathSoft },
+        { value: circlePath },
+      ],
+    });
+  }, []);
+
   // Animations!
   const timeline = anime.timeline({
     easing: "linear",
@@ -45,6 +71,7 @@ export default function BgAnimation() {
       viewBox="0 0 1120 1120"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onLoad={() => animationRef.current.restart()}
     >
       <path
         id="circle"

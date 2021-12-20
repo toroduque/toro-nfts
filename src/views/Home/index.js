@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
 import useToroNft from "../../hooks/useToroNft";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import BgAnimation from "../../components/bg-animation";
 
 const Home = () => {
@@ -19,9 +19,19 @@ const Home = () => {
   const [imageSrc, setImageSrc] = useState("");
   const [maxSupply, setMaxSupply] = useState("...loading");
   const [totalSupply, setTotalSupply] = useState("...loading");
+  const [loading, setLoading] = useState(true);
   const { active, account } = useWeb3React();
   const toroNft = useToroNft();
   const toast = useToast();
+
+  const counter = useRef(0);
+
+  const imageLoaded = () => {
+    counter.current += 1;
+    if (counter.current >= 1) {
+      setLoading(false);
+    }
+  };
 
   const getToroNftData = useCallback(async () => {
     if (toroNft) {
@@ -174,10 +184,13 @@ const Home = () => {
             </Heading>
           )}
         </div>
+
         <Image
           src={active ? imageSrc : "https://avataaars.io/"}
           className="next-nft-image-wrapper"
+          onLoad={imageLoaded}
         />
+
         {active ? (
           <>
             <Flex mt={2}>
@@ -220,9 +233,11 @@ const Home = () => {
             >
               Actualizar
             </Button>
-            <div className="svg-bg-wrapper">
-              <BgAnimation />
-            </div>
+            {!loading && (
+              <div className="svg-bg-wrapper">
+                <BgAnimation />
+              </div>
+            )}
           </>
         ) : (
           <Badge mt={2}>Wallet desconectado</Badge>
