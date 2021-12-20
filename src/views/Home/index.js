@@ -67,13 +67,15 @@ const Home = () => {
           status: "info",
         });
       })
-      .on("receipt", () => {
-        setIsMinting(false);
+      .on("receipt", async () => {
+        await getToroNftData()
         toast({
           title: "Transacción confirmada",
           description: "Nunca pares de aprender",
           status: "success",
         });
+        setIsMinting(false);
+
       })
       .on("error", (error) => {
         setIsMinting(false);
