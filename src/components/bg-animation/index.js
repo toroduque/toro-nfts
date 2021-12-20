@@ -23,8 +23,10 @@ export default function BgAnimation() {
     // Animations!
     const timeline = anime.timeline({
       easing: "linear",
-      duration: 15000,
+      duration: 17000,
       loop: true,
+      autoplay: true,
+      complete: (anim) => anim.reverse(),
     });
 
     timeline.add({
