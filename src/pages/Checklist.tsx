@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { CheckCircle2, Circle, RotateCcw, Send } from "lucide-react";
 import { CHECKLIST } from "../data/curriculum";
 import { useStore } from "../store/AppStore";
+import { Kicker } from "../components/ui";
 
 export default function Checklist() {
   const { data, recordChecklistRun } = useStore();
@@ -33,10 +34,11 @@ export default function Checklist() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-2xl font-semibold text-ink-900">
+        <Kicker index="05">Appendix B</Kicker>
+        <h1 className="mt-4 font-display text-4xl font-medium tracking-tight text-ink-900 sm:text-5xl">
           Pre-send Checklist
         </h1>
-        <p className="mt-2 max-w-2xl text-ink-500">
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-600">
           Run this on every client message — no exceptions for "quick" replies.
           All eight must pass before you send.
         </p>

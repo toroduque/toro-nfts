@@ -3,7 +3,7 @@ import { ArrowRight, CheckCircle2, Circle, Lock } from "lucide-react";
 import { STAGES } from "../data/curriculum";
 import { useStore } from "../store/AppStore";
 import { stageProgress } from "../store/derive";
-import { ProgressBar } from "../components/ui";
+import { Kicker, ProgressBar } from "../components/ui";
 
 export default function LearningPath() {
   const { data } = useStore();
@@ -14,10 +14,13 @@ export default function LearningPath() {
   const firstIncomplete = prog.find((p) => !p.complete)?.stage ?? 99;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <header>
-        <h1 className="text-2xl font-semibold text-ink-900">Learning Path</h1>
-        <p className="mt-2 max-w-2xl text-ink-500">
+        <Kicker index="01">Twelve weeks</Kicker>
+        <h1 className="mt-4 font-display text-4xl font-medium tracking-tight text-ink-900 sm:text-5xl">
+          Learning Path
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-600">
           Six stages over twelve weeks. Each has a goal, what to learn and read,
           drills to practise, one habit to install, and exit criteria. Don't
           move on until you pass them.
@@ -32,8 +35,8 @@ export default function LearningPath() {
             <Link
               key={s.id}
               to={`/path/${s.id}`}
-              className={`card block p-5 transition hover:border-brand-300 hover:shadow ${
-                locked ? "opacity-70" : ""
+              className={`card block p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-ink-300 hover:shadow-soft ${
+                locked ? "opacity-60" : ""
               }`}
             >
               <div className="flex items-start gap-4">
@@ -51,7 +54,7 @@ export default function LearningPath() {
                     <span className="text-xs font-semibold uppercase tracking-wide text-ink-400">
                       Stage {s.stage}
                     </span>
-                    <h2 className="text-base font-semibold text-ink-900">
+                    <h2 className="font-display text-lg font-medium text-ink-900">
                       {s.title}
                     </h2>
                     <span className="text-xs text-ink-400">· {s.timeframe}</span>

@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { RotateCcw } from "lucide-react";
 import { TEMPLATES } from "../data/curriculum";
-import { CopyButton } from "../components/ui";
+import { CopyButton, Kicker } from "../components/ui";
 
 export default function Templates() {
   const [activeId, setActiveId] = useState(TEMPLATES[0].id);
@@ -27,8 +27,11 @@ export default function Templates() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-2xl font-semibold text-ink-900">Templates</h1>
-        <p className="mt-2 max-w-2xl text-ink-500">
+        <Kicker index="04">Appendix A</Kicker>
+        <h1 className="mt-4 font-display text-4xl font-medium tracking-tight text-ink-900 sm:text-5xl">
+          Templates
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-600">
           Fill the fields, copy the result. Each template enforces the right
           structure so the bottom line leads and nothing decision-relevant is
           buried.
@@ -97,7 +100,7 @@ export default function Templates() {
             </h2>
             <CopyButton text={output} label="Copy message" />
           </div>
-          <pre className="flex-1 whitespace-pre-wrap rounded-lg bg-ink-50 p-4 text-sm leading-relaxed text-ink-800">
+          <pre className="flex-1 whitespace-pre-wrap rounded-xl border border-ink-200 bg-ink-50/70 p-5 font-mono text-[13px] leading-relaxed text-ink-800">
             {output}
           </pre>
         </div>

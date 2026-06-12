@@ -6,54 +6,88 @@
   html {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
   }
   body {
-    @apply bg-ink-50 text-ink-900;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif;
+    @apply bg-paper text-ink-900 font-sans;
+    font-feature-settings: "ss01", "cv01";
+  }
+  ::selection {
+    @apply bg-brand-500/20 text-ink-900;
+  }
+  /* Fraunces optical sizing for display type */
+  .font-display {
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 80;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer components {
+  /* Surfaces ------------------------------------------------------------ */
   .card {
-    @apply rounded-xl border border-ink-200 bg-white shadow-sm;
+    @apply rounded-2xl border border-ink-200/80 bg-white;
   }
+
+  /* Editorial section label: 01 — LABEL with a hairline */
+  .kicker {
+    @apply inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-600;
+  }
+
+  /* Buttons ------------------------------------------------------------- */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-40;
   }
   .btn-primary {
-    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+    @apply btn bg-ink-900 text-paper hover:bg-ink-800 active:scale-[0.98];
   }
-  .btn-ghost {
-    @apply btn text-ink-700 hover:bg-ink-100;
+  .btn-accent {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700 active:scale-[0.98];
   }
   .btn-outline {
-    @apply btn border border-ink-300 bg-white text-ink-700 hover:bg-ink-50;
+    @apply btn border border-ink-300 bg-transparent text-ink-800 hover:border-ink-900 hover:bg-ink-900 hover:text-paper;
+  }
+  .btn-ghost {
+    @apply btn text-ink-600 hover:bg-ink-100 hover:text-ink-900;
   }
   .btn-danger {
-    @apply btn text-red-600 hover:bg-red-50;
+    @apply btn px-3 text-ink-400 hover:bg-red-50 hover:text-red-600;
   }
+
+  /* Form controls ------------------------------------------------------- */
   .input {
-    @apply w-full rounded-lg border border-ink-300 bg-white px-3 py-2 text-sm text-ink-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100 placeholder:text-ink-400;
+    @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-900 outline-none transition focus:border-ink-900 focus:ring-2 focus:ring-ink-900/10 placeholder:text-ink-400;
   }
   .label {
-    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-ink-500;
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-500;
   }
+
+  /* Chips --------------------------------------------------------------- */
   .chip {
     @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  /* Editorial hairline that draws in on mount */
+  .rule {
+    @apply h-px w-full origin-left bg-ink-200;
   }
 }
 
 /* Thin, unobtrusive scrollbars */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #aeb7c8 transparent;
+  scrollbar-color: #cdc5b0 transparent;
 }
 *::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
 }
 *::-webkit-scrollbar-thumb {
-  background-color: #aeb7c8;
+  background-color: #cdc5b0;
   border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #a29a83;
 }

@@ -2,7 +2,7 @@ import { Plus, Trash2 } from "lucide-react";
 import type { CommitmentStatus } from "../data/types";
 import { useStore } from "../store/AppStore";
 import { commitmentHitRate } from "../store/derive";
-import { Chip, EmptyState, Stat } from "../components/ui";
+import { Chip, EmptyState, Kicker, Stat } from "../components/ui";
 
 const STATUS_OPTIONS: { value: CommitmentStatus; label: string; tone: string }[] =
   [
@@ -36,10 +36,11 @@ export default function CommitmentLog() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-2xl font-semibold text-ink-900">
+        <Kicker index="02">Stage 0 · core tool</Kicker>
+        <h1 className="mt-4 font-display text-4xl font-medium tracking-tight text-ink-900 sm:text-5xl">
           Commitment &amp; Decision Log
         </h1>
-        <p className="mt-2 max-w-2xl text-ink-500">
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-600">
           One row per date promised or fact asserted to the client. Rule:
           nothing reaches the client unlogged. Verify facts against the source
           of record before sending — and record the check here.

@@ -7,7 +7,7 @@ import type {
 } from "../data/types";
 import { useStore } from "../store/AppStore";
 import { riskLeadTime } from "../store/derive";
-import { Chip, EmptyState, Stat } from "../components/ui";
+import { Chip, EmptyState, Kicker, Stat } from "../components/ui";
 
 const CATEGORIES: { value: RaidCategory; label: string; tone: string }[] = [
   { value: "risk", label: "Risk", tone: "red" },
@@ -41,8 +41,11 @@ export default function RaidLog() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-2xl font-semibold text-ink-900">RAID Log</h1>
-        <p className="mt-2 max-w-2xl text-ink-500">
+        <Kicker index="03">Stage 0 · core tool</Kicker>
+        <h1 className="mt-4 font-display text-4xl font-medium tracking-tight text-ink-900 sm:text-5xl">
+          RAID Log
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-600">
           Risks, assumptions, issues, dependencies for this account. Review
           every Monday. Any risk crossing ~30% likelihood of moving a
           client-facing date gets flagged that day — set the flagged date here
