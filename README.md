@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Reliable Comms
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive learning app for the **Stakeholder Communication: Structured
+Learning Path** — a sequenced route from "reactive communicator" to
+"exceptionally reliable communicator," built for ~3 hours a week over 12 weeks.
 
-## Available Scripts
+It turns the static curriculum into working tools: the path itself with
+exit-criteria gating, plus the instruments the path tells you to build (a
+commitment log, a RAID log, fillable message templates, a pre-send checklist,
+practice drills, and a metrics dashboard that auto-computes things like
+commitment hit-rate and risk lead time).
 
-In the project directory, you can run:
+## The destination
 
-### `yarn start`
+You are reliable when all six hold:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **No surprises** — the client never learns of a risk on the day it lands.
+2. **Accuracy** — you never assert a fact about system state you haven't verified.
+3. **Precision** — every update names versions, dates, statuses, owners exactly.
+4. **Managed bad news** — bad news arrives with a plan and a checkpoint.
+5. **Under-promise** — you quote dates you beat 90% of the time.
+6. **One truth** — internal and external messages share identical facts in
+   different registers.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `yarn test`
+- **Dashboard** — overall progress, live metrics, current stage, the six
+  reliability conditions, and the full stage rail.
+- **Learning Path** — six stages (0–5). Each has a goal, what to learn and
+  read, drills, one habit to install, and **exit criteria you tick off**.
+  Don't move on until you pass them.
+- **Commitment & Decision Log** — one row per date promised or fact asserted.
+  Drives the commitment hit-rate metric. Nothing reaches the client unlogged.
+- **RAID Log** — risks, assumptions, issues, dependencies. Records when a risk
+  was identified vs. flagged, and computes your risk lead time automatically.
+- **Templates** — release status, early risk flag, bad news/delay, and weekly
+  update. Fill the fields, copy the message.
+- **Pre-send Checklist** — the eight-point gate to run on every client message.
+- **Practice Drills** — every scenario from the path, with coaching notes and
+  autosaved drafts.
+- **Progress Signals** — the five monthly metrics, two auto-computed from your
+  logs, plus export / import / reset of all your data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Data & privacy
 
-### `yarn build`
+Everything is stored in your browser's `localStorage` — no backend, no account,
+nothing leaves your machine. Use **Progress Signals → Export backup** to save a
+JSON copy or move between machines.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running it
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+npm run dev      # dev server at http://localhost:5173
+npm run build    # type-check + production build to dist/
+npm run preview  # serve the production build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Stack
 
-### `yarn eject`
+Vite · React 18 · TypeScript (strict) · React Router · Tailwind CSS ·
+lucide-react. No backend.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Start here
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The single highest-leverage step is **Stage 0, today**: the commitment log plus
+the 24-hour risk-flag rule. They directly prevent the two failures that trigger
+most complaints, require no reading, and the client feels the difference within
+a week.
