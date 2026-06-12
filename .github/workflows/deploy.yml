@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - claude/fresh-project-setup-7xjz4l
+      - main
   workflow_dispatch:
 
 # Permissions needed for the GitHub Pages deployment.
