@@ -69,15 +69,19 @@ export default function StageDetail() {
         </Link>
       </div>
 
-      <header className="card p-6">
-        <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">
-          Stage {s.stage} · {s.timeframe}
+      <header>
+        <p className="kicker">
+          <span className="font-display text-ink-400">0{s.stage}</span>
+          <span className="h-px w-6 bg-ink-300" />
+          {s.timeframe}
         </p>
-        <h1 className="mt-1 text-2xl font-semibold text-ink-900">{s.title}</h1>
-        <div className="mt-3 flex items-start gap-2 rounded-lg bg-brand-50 px-4 py-3">
+        <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-tight tracking-tight text-ink-900 sm:text-5xl">
+          {s.title}
+        </h1>
+        <div className="mt-6 flex items-start gap-3 rounded-2xl border border-brand-200 bg-brand-50/60 px-5 py-4">
           <Target size={18} className="mt-0.5 shrink-0 text-brand-600" />
-          <p className="text-sm text-brand-900">
-            <span className="font-semibold">Goal: </span>
+          <p className="text-ink-800">
+            <span className="font-semibold">Goal — </span>
             {s.goal}
           </p>
         </div>

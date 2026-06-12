@@ -3,7 +3,7 @@ import { Download, Plus, Trash2, Upload } from "lucide-react";
 import { SIGNALS } from "../data/curriculum";
 import { useStore } from "../store/AppStore";
 import { commitmentHitRate, riskLeadTime } from "../store/derive";
-import { Chip, Stat } from "../components/ui";
+import { Chip, Kicker, Stat } from "../components/ui";
 
 function thisMonth(): string {
   return new Date().toISOString().slice(0, 7);
@@ -29,10 +29,11 @@ export default function Metrics() {
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="text-2xl font-semibold text-ink-900">
+        <Kicker index="07">Appendix C</Kicker>
+        <h1 className="mt-4 font-display text-4xl font-medium tracking-tight text-ink-900 sm:text-5xl">
           Progress Signals
         </h1>
-        <p className="mt-2 max-w-2xl text-ink-500">
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-600">
           Review monthly. Two are computed automatically from your logs; the
           rest you log here. This is the evidence you walk into the renewal
           conversation with.
